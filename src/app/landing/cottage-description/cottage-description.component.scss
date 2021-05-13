@@ -1,0 +1,75 @@
+#cottage-description {
+  h4 {
+    font-size: 14px !important;
+    letter-spacing: 2px;
+  }
+
+  .plan {
+    img {
+      width: 100%;
+    }
+  }
+
+  .main-pic {
+    img {
+      width: 100%;
+    }
+  }
+
+  .cottage-title {
+    div {
+      font-size: 24px;
+      font-weight: 700;
+      img {
+        margin: 2px 10px 0 10px;
+        width: 6px;
+      }
+    }
+  }
+
+  .addresses {
+    address {
+      font-size: 18px;
+      line-height: 25px;
+      font-weight: 400;
+    }
+  }
+
+  .description {
+    font-size: 24px;
+    line-height: 33px;
+    font-weight: 400;
+  }
+
+  .a-more {
+    font-weight: 700;
+    line-height: 32px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+    img {
+      margin-top: 4px;
+    }
+  }
+
+  .prices {
+    .price-title {
+      h6 {
+        font-size: 24px;
+        line-height: 33px;
+        font-weight: 700 !important;
+      }
+    }
+    h6.price-per-day {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 33px;
+    }
+
+    h3.price-per-month {
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 49px;
+    }
+  }
+}

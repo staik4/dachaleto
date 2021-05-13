@@ -1,0 +1,33 @@
+header {
+  position: fixed;
+  background-color: rgb(255, 255, 255, 0.7);
+  width: 100%;
+  z-index: 1000;
+}
+nav {
+  .nav-items {
+    margin-left: 120px;
+    align-items: center;
+    a {
+      text-decoration: none;
+      color: black;
+      margin-left: 20px;
+      font-weight: 500;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+  }
+  #add-info {
+    #number-header {
+      font-weight: 500;
+      text-decoration: none;
+      color: black;
+      margin-left: 40px;
+    }
+  }
+}

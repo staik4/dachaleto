@@ -1,0 +1,10 @@
+<div id="banner" style="{{ 'background-image: url('+ backendUrl + (banner ? banner.picture.url: '') + ');' }}">
+  <div class="text-banner">
+    <h1 class="title-text text-uppercase text-white">{{ banner ? banner.title_text : '' }}</h1>
+    <h3 class="mt-4 text text-uppercase text-white">{{ banner ? banner.banner_text : '' }}</h3>
+    <div class="d-flex mt-5">
+      <button class="btn-normal btn-viola">Забронировать</button>
+      <button class="ml-2 btn-normal btn-white">Подробнее</button>
+    </div>
+  </div>
+</div>

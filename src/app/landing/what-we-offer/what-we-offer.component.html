@@ -1,0 +1,16 @@
+<div id="what-we-offer" class="mt-100px">
+  <h1>Что мы предлагаем</h1>
+  <div class="d-flex justify-content-around align-items-start">
+    <div *ngFor="let offer of offers; index as i" class="d-flex flex-column item-what-we-offer align-items-center justify-content-center">
+      <div class="img">
+        <img src="{{ backendUrl + offer.icon.url }}" alt="">
+      </div>
+      <div class="title">
+        {{ offer.title }}
+      </div>
+      <div class="description">
+        {{ offer.description }}
+      </div>
+    </div>
+  </div>
+</div>

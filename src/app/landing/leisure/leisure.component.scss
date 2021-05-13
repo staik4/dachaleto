@@ -1,0 +1,12 @@
+#leisure-container {
+  margin-top: 100px;
+  .card-leisure-item {
+    &:first-child {
+      margin-left: 0;
+    }
+    margin-left: 15px;
+    .text-card {
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<div id="how-to-rent-cottage" class="mt-100px">
+  <h1 class="text-left">
+    {{ title?.title }}
+  </h1>
+  <div class="row mt-5">
+    <div class="col-3">
+      <img src="./assets/img/how-to-rent/choice.svg" alt="">
+    </div>
+    <div class="col-3">
+      <img src="./assets/img/how-to-rent/request.svg" alt="">
+    </div>
+    <div class="col-3">
+      <img src="./assets/img/how-to-rent/approve.svg" alt="">
+    </div>
+    <div class="col-3">
+      <img src="./assets/img/how-to-rent/rent.svg" alt="">
+    </div>
+  </div>
+  <div class="row card-how-to-rent d-flex flex-row">
+    <div *ngFor="let item of data" class="col-3 d-flex flex-column">
+      <span class="title mt-4">
+        {{ item.title }}
+      </span>
+      <span class="description mt-2">
+        {{ item.description }}
+      </span>
+    </div>
+  </div>
+</div>

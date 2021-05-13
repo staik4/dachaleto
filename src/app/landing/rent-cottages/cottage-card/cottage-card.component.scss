@@ -1,0 +1,19 @@
+.card-cottage {
+  width: 100%;
+  .picture-cottage {
+    background-size: 100%;
+    background-position: cover;
+    background-repeat: no-repeat;
+    height: 450px;
+    max-width: 500px;
+    width: 100%;
+  }
+  a {
+    font-weight: 700;
+    line-height: 32px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 100px;
+  }
+}

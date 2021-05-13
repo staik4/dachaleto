@@ -1,0 +1,22 @@
+<app-header></app-header>
+<app-banner></app-banner>
+<div class="container">
+  <div class="d-flex flex-column">
+    <app-what-we-offer></app-what-we-offer>
+    <app-leisure></app-leisure>
+<!--    <app-gallary></app-gallary>-->
+    <app-rent-cottages [cottages]="cottages"></app-rent-cottages>
+
+    <div *ngFor="let cottage of cottages">
+      <app-cottage-description [cottage]="cottage"></app-cottage-description>
+    </div>
+
+    <app-how-to-rent></app-how-to-rent>
+
+    <app-book-cottage></app-book-cottage>
+    <app-map></app-map>
+  </div>
+</div>
+<app-footer></app-footer>
+
+

@@ -1,0 +1,19 @@
+#book {
+  form {
+    .form-group {
+      .input-book, select-book {
+        border: 1px solid #130F26;
+        border-radius: 5px;
+        height: 31px;
+        outline: none;
+        padding: 3px 5px 3px 15px;
+        font-size: 14px;
+        outline: 0 !important;
+        &:active, :hover, :focus {
+          outline: 0 !important;
+          outline-offset: 0 !important;
+        }
+      }
+    }
+  }
+}

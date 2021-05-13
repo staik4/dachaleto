@@ -1,1 +1,122 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/css/variables";
+
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+@font-face {
+  font-family: 'Manrope';
+  src: url("assets/fonts/manrope/static/Manrope-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url("assets/fonts/manrope/static/Manrope-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url("assets/fonts/manrope/static/Manrope-ExtraLight.ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url("assets/fonts/manrope/static/Manrope-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url("assets/fonts/manrope/static/Manrope-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url("assets/fonts/manrope/static/Manrope-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+* {
+  font-size: 18px;
+  font-family: 'Manrope', sans-serif;
+  color: black;
+  line-height: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-normal {
+  width: 160px;
+  height: 50px;
+  border-radius: 5px;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  &.btn-viola {
+    background-color: $mainColor;
+    color: $colorWhiteText;
+  }
+  &.btn-white {
+    background-color: $colorWhiteText;
+    color: $mainColor;
+  }
+}
+
+.text-viola {
+  color: $mainColor !important;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 800 !important;
+  font-size: 48px !important;
+}
+
+h4 {
+  font-weight: 800 !important;
+  font-size: 28px;
+  line-height: 32px !important;
+}
+
+h6 {
+  font-weight: 400 !important;
+  font-size: 18px;
+  line-height: 32px !important;
+}
+
+.white-space-pre {
+  white-space: pre !important;
+}
+
+.mt-100px {
+  margin-top: 100px !important;
+}
+
+.mt-80px {
+  margin-top: 80px !important;
+}
+
+.mt-50px {
+  margin-top: 50px !important;
+}
+
+
+//
+// Main Style
+//
+
+////////////////////////////////////////////////////////////////
+///////////// DO NOT MODIFY BELOW INCLUDE ORDER ////////////////
+////////////////////////////////////////////////////////////////
+
+// 1: Initialize
+
+// 2: Bootstrap framework includes
+@import '~bootstrap/scss/bootstrap';

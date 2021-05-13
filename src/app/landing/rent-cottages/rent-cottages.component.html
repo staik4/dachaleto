@@ -1,0 +1,12 @@
+<div id="rent-cottages" class="d-flex mt-100px">
+  <div class="row d-flex justify-content-between">
+    <div class="col-5 d-flex flex-column">
+      <h1 style="margin-top: 80px">Аренда</h1>
+      <app-cottage-card *ngFor="let cOnRight of cottagesOnLeft; index as i" [cottage]="cOnRight" [index]="i" [side]="'left'"></app-cottage-card>
+    </div>
+    <div class="col-5 d-flex flex-column">
+      <app-cottage-card *ngFor="let cOnLeft of cottagesOnRight; index as i" [cottage]="cOnLeft" [index]="i" [side]="'right'"></app-cottage-card>
+    </div>
+  </div>
+</div>
+
