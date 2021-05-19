@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, Input} from '@angular/core';
-import {LandingComponent} from '../landing.component';
-import {RestService} from '../../services/rest.service';
+import {BackendUrlClass, RestService} from '../../services/rest.service';
 import {Cottage} from '../../types';
 
 @Component({
@@ -8,12 +7,12 @@ import {Cottage} from '../../types';
   templateUrl: './rent-cottages.component.html',
   styleUrls: ['./rent-cottages.component.scss']
 })
-export class RentCottagesComponent extends LandingComponent implements AfterViewInit {
+export class RentCottagesComponent extends BackendUrlClass implements AfterViewInit {
   @Input() cottages: Cottage[]|undefined;
   cottagesOnRight: Cottage[]|undefined = [];
   cottagesOnLeft: Cottage[]|undefined = [];
   constructor(public rest: RestService) {
-    super(rest);
+    super();
   }
 
   ngAfterViewInit(): void {
@@ -28,7 +27,7 @@ export class RentCottagesComponent extends LandingComponent implements AfterView
         });
         clearInterval(interval);
       }
-    })
+    });
   }
 
 }

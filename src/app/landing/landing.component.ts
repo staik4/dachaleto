@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RestService} from '../services/rest.service';
-import {environment} from '../../environments/environment';
-import {Cottage} from '../types';
+import {Cottage, Map} from '../types';
 
 @Component({
   selector: 'app-landing',
@@ -10,7 +9,7 @@ import {Cottage} from '../types';
 })
 export class LandingComponent implements OnInit {
   cottages: Cottage[]|undefined;
-  backendUrl = environment.apiUrl.substr(0, environment.apiUrl.length - 1);
+  maps: Map[];
   constructor(
     public rest: RestService
   ) { }
@@ -25,6 +24,10 @@ export class LandingComponent implements OnInit {
         this.cottages?.forEach(c => {
           c.addInfo = response.filter(i => c.id === i.cottage.id)[0];
         });
+      });
+    this.rest.get('maps')
+      .subscribe((response: any[]) => {
+        this.maps = response;
       });
   }
 

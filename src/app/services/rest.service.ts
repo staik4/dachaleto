@@ -42,3 +42,7 @@ export class RestService {
     ).pipe(map((response) => {const resp = response as any as HttpResponse<any>; return resp.body; }));
   }
 }
+
+export abstract class BackendUrlClass {
+ backendUrl = environment.apiUrl.substr(0, environment.apiUrl.length - 1);
+}

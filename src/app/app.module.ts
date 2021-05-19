@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     CommonModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
   ],
   providers: [
     RestService,

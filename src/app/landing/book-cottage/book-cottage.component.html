@@ -1,27 +1,49 @@
 <div id="book" class="mt-100px">
   <h1>{{ title?.title }}</h1>
-  <form class="col-12" action="">
+  <form class="col-12 mt-50px" action="" [formGroup]="form">
     <div class="row">
-      <div class="form-group col-xl-3">
-        <label for=""></label>
-        <input
-          type="text"
-          class="input-book"
-        >
+      <div class="d-flex flex-column align-content-start form-group col-xl-3">
+        <label for="select-cottage">Аренда:</label>
+        <div class="wrapper-select">
+          <select name="" id="select-cottage" class="select-book" formControlName="cottage">
+            <option [value]="0" disabled [selected]="true">Выберите коттедж</option>
+            <option *ngFor="let cottage of cottages" [value]="cottage.id">{{ cottage.name }}</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group col-xl-3">
-        <label for=""></label>
-        <input
-          type="text"
-          class="input-book"
-        >
+      <div class="d-flex flex-column align-content-start form-group col-xl-3">
+        <label for="location">Выберите направление:</label>
+        <div class="wrapper-select">
+          <select name="" class="select-book" id="location" formControlName="location">
+            <option value="">Можайское насправление</option>
+            <option value="">Дмитровское направление</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group col-xl-3">
-        <label for=""></label>
-        <input
-          type="text"
-          class="input-book"
-        >
+      <div class="d-flex flex-column align-content-start form-group col-xl-3">
+        <label for="arrival-date">Дата заезда</label>
+        <input placeholder="Выберите дату заезда" id="arrival-date" type="date" class="input-book" formControlName="arrivalDate">
+      </div>
+      <div class="d-flex flex-column align-content-start form-group col-xl-3">
+        <label for="departure-date">Дата выезда</label>
+        <input placeholder="Выберите дату выезда" id="departure-date" type="date" class="input-book" formControlName="departureDate">
+      </div>
+
+      <div class="d-flex flex-column align-content-start form-group col-xl-3">
+        <label for="name">ФИО</label>
+        <input placeholder="Введите ФИО" id="name" type="text" class="input-book" formControlName="name">
+      </div>
+      <div class="d-flex flex-column align-content-start form-group col-xl-3">
+        <label for="phone-number">Телефонный номер</label>
+        <input [mask]="'+7 (000) 000-0000'"  placeholder="Введите телефонный номер" id="phone-number" type="text" class="input-book" formControlName="telNumber">
+      </div>
+      <div class="d-flex flex-column align-content-start form-group col-xl-3">
+        <label for="persons-number">Количество человек</label>
+        <input placeholder="Введите количество человек" id="persons-number" type="number" class="input-book" formControlName="personsNumber" [min]="0" [max]="6">
+      </div>
+      <div class="d-flex flex-column align-content-start form-group col-xl-3">
+        <label for="additional-services">Дополнительные услуги</label>
+        <input placeholder="Дополнительные услуги" id="additional-services" type="text" class="input-book" formControlName="additionalServices">
       </div>
     </div>
   </form>

@@ -16,8 +16,13 @@ import {RouterModule} from '@angular/router';
 import { RentCottagesComponent } from './rent-cottages/rent-cottages.component';
 import {CottageCardComponent} from './rent-cottages/cottage-card/cottage-card.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import {ReactiveFormsModule} from '@angular/forms';
+import {SafeHtmlModule} from '../pipes/safeHtml.pipe';
+import {MarkedPipe} from '../pipes/markdown.pipe';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
@@ -35,6 +40,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     FooterComponent,
     ReviewsComponent,
     RentCottagesComponent,
+    MarkedPipe
   ],
   exports: [
     MapComponent,
@@ -42,10 +48,13 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     BookCottageComponent,
     RentCottagesComponent
   ],
-  imports: [
-    RouterModule.forChild([{ path: '', component: LandingComponent }]),
-    CommonModule,
-    CarouselModule
-  ]
+    imports: [
+        RouterModule.forChild([{path: '', component: LandingComponent}]),
+        CommonModule,
+        CarouselModule,
+        ReactiveFormsModule,
+        SafeHtmlModule,
+        NgxMaskModule.forRoot(options),
+    ]
 })
 export class LandingModule { }

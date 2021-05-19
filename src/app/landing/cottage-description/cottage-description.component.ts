@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {Cottage} from '../../types';
-import {LandingComponent} from '../landing.component';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import {BackendUrlClass} from '../../services/rest.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
     './cottage-description.component.scss'
   ]
 })
-export class CottageDescriptionComponent extends LandingComponent implements OnInit, AfterViewInit {
+export class CottageDescriptionComponent extends BackendUrlClass implements OnInit, AfterViewInit {
   @Input() cottage: Cottage|undefined;
   additionalInfo: any|undefined;
   customOptions: OwlOptions = {
@@ -42,7 +42,7 @@ export class CottageDescriptionComponent extends LandingComponent implements OnI
   }
 
   ngAfterViewInit(): void {
-    console.log(this.cottage);
+    // console.log(this.cottage);
   }
 
 }

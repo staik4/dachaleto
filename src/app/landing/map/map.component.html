@@ -1,1 +1,16 @@
-<p>map works!</p>
+<div id="map" class="mt-100px">
+  <h1 class="mt-50px text-left">Как добраться</h1>
+  <div class="row mt-50px">
+    <div class="col-xl-6" *ngFor="let map of maps">
+      <div class="pic-map">
+        <img src="{{ backendUrl + map.picture.url }}" alt="">
+      </div>
+      <div class="title-map mt-4">
+        <h4>
+          {{ map.title }}
+        </h4>
+      </div>
+      <div class="description" [innerHTML]="map.description | marked"></div>
+    </div>
+  </div>
+</div>

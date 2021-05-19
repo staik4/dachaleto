@@ -40,3 +40,9 @@ export interface Cottage extends DB {
   main_picture: {[key: string]: any};
   addInfo?: any;
 }
+
+export interface Map extends DB {
+  title: string;
+  description: any;
+  picture: {[key: string]: any};
+}

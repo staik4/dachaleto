@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import {RestService} from '../../services/rest.service';
+import {BackendUrlClass, RestService} from '../../services/rest.service';
 import {Banner} from '../../types';
-import {LandingComponent} from '../landing.component';
 
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss']
 })
-export class BannerComponent extends LandingComponent implements OnInit {
+export class BannerComponent extends BackendUrlClass implements OnInit {
   banner: Banner | undefined;
+  constructor(
+    private rest: RestService
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     this.rest.get(`header`).subscribe((response: Banner) => {

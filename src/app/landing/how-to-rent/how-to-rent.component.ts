@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {LandingComponent} from "../landing.component";
+import {BackendUrlClass, RestService} from '../../services/rest.service';
 
 @Component({
   selector: 'app-how-to-rent',
   templateUrl: './how-to-rent.component.html',
   styleUrls: ['./how-to-rent.component.scss']
 })
-export class HowToRentComponent extends LandingComponent implements OnInit {
+export class HowToRentComponent extends BackendUrlClass implements OnInit {
   data: any|undefined;
   title: {title: string}|undefined;
+  constructor(
+    private rest: RestService
+  ) {
+    super();
+  }
+
   ngOnInit(): void {
     this.rest.get('how-to-rent-cottages')
       .subscribe(response => {
