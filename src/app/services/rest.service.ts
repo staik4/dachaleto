@@ -24,7 +24,7 @@ const httpOptions: Options = {
   params: {}
 };
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class RestService {
   constructor(
     private http: HttpClient
@@ -40,6 +40,18 @@ export class RestService {
       environment.apiUrl + url,
       options
     ).pipe(map((response) => {const resp = response as any as HttpResponse<any>; return resp.body; }));
+  }
+
+  post = (url: string, data: FormData|object|string|null = null, params: any = {}, options = httpOptions) => {
+    options = {
+      ...options,
+      params
+    };
+    return this.http.post(
+      environment.apiUrl + url,
+      data,
+      options
+    ).pipe(map((response) => (response as any).body));
   }
 }
 

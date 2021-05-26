@@ -19,8 +19,14 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SafeHtmlModule} from '../pipes/safeHtml.pipe';
 import {MarkedPipe} from '../pipes/markdown.pipe';
-
+import {HttpClientModule} from '@angular/common/http';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
+import {OwlDateTimeModule} from 'ng-pick-datetime';
+import {OwlNativeDateTimeModule} from 'ng-pick-datetime';
+import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
+import {AlertModule} from '../parts/alert/alert.service';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -40,7 +46,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     FooterComponent,
     ReviewsComponent,
     RentCottagesComponent,
-    MarkedPipe
+    MarkedPipe,
   ],
   exports: [
     MapComponent,
@@ -55,6 +61,13 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
         ReactiveFormsModule,
         SafeHtmlModule,
         NgxMaskModule.forRoot(options),
-    ]
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule,
+        AlertModule,
+
+    ],
+  providers: [
+    {provide: OWL_DATE_TIME_LOCALE, useValue: 'ru'},
+  ]
 })
 export class LandingModule { }

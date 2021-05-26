@@ -5,6 +5,17 @@ header {
   z-index: 1000;
 }
 nav {
+  .logo {
+    img {
+      max-width: 170px;
+    }
+  }
+  .burger {
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
   .nav-items {
     margin-left: 120px;
     align-items: center;
@@ -31,3 +42,5 @@ nav {
     }
   }
 }
+
+

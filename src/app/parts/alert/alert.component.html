@@ -1,0 +1,50 @@
+<div @openClose *ngIf="opened" class="modal" style="display: block; background: rgba(0, 0, 0, 0.6)" tabindex="-1" role="dialog">
+  <div *ngIf="opened" @showHide class="modal-dialog">
+    <div class="modal-content" id="{{ id }}-alert-wrapper">
+      <div [ngClass]="options.headerClass" class="modal-header" id="{{ id }}-alert-header">
+        <ng-template *ngTemplateOutlet="alertHeader"></ng-template>
+        <div>
+          <p class="h5 m-0" [ngClass]="options.headerClass" *ngIf="options.header">{{ options.header }}</p>
+          <p class="text-muted" *ngIf="options.subheader" id="{{ id }}-alert-subheader">{{ options.subheader }}</p>
+        </div>
+        <button (click)="close()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+<!--          <span aria-hidden="true">&times;</span>-->
+          <img src="/assets/img/close.svg" alt="close-btn" style="color: white; width: 15px; height: 15px">
+        </button>
+      </div>
+      <div class="modal-body" style="max-height: 55vh; overflow-y: auto;" id="{{ id }}-alert-body">
+        <ng-template *ngTemplateOutlet="alertBody"></ng-template>
+        <div class="alert-message" *ngIf="options.message && !alertBody" [innerHTML]="options.message"></div>
+        <form (submit)="returnFalse($event)" id="alert-form" *ngIf="options.inputs && options.inputs.length" class="mt-3 alert-inputs">
+          <div class="form-group" *ngFor="let input of options.inputs; index as i">
+            <label *ngIf="['textarea', 'ip', 'select'].indexOf(input.type) < 0" style="margin-right: 10px;" for="{{ id }}-{{ input.name }}-{{ input.value }}-{{ i }}">{{ input.label }}</label>
+            <input [ngClass]="{'form-control-file': input.type === 'file', 'form-control': input.type !== 'file'}" *ngIf="['textarea', 'ip', 'select'].indexOf(input.type) < 0" [multiple]="input.multiple" [accept]="input.accept" [name]="input.name" form="alert-form" [value]="getInputValue(input)" [placeholder]="input.placeholder || ''" id="{{ id }}-{{ input.name }}-{{ input.value }}-{{ i }}" [type]="input.type" (change)="changeInput($event, i)" />
+
+            <label *ngIf="input.type === 'textarea'" style="margin-right: 10px;" for="{{ id }}-{{ input.name }}-{{ input.value }}-textarea-{{ i }}">{{ input.label }}</label>
+            <textarea class="form-control" *ngIf="input.type === 'textarea'" [name]="input.name" form="alert-form" [value]="getInputValue(input)" [placeholder]="input.placeholder || ''" id="{{ id }}-{{ input.name }}-{{ input.value }}-textarea-{{ i }}" (input)="changeInput($event, i)"></textarea>
+
+            <label *ngIf="input.type === 'select'" style="margin-right: 10px;" for="{{ id }}-{{ input.name }}-{{ input.value }}-select-{{ i }}">{{ input.label }}</label>
+            <select class="form-control" *ngIf="input.type === 'select'" [name]="input.name" [ngModelOptions]="{standalone: true}" id="{{ id }}-{{ input.name }}-{{ input.value }}-select-{{ i }}" [(ngModel)]="input.value">
+              <option *ngFor="let option of input.options" [id]="option.id" [ngValue]="option.value">{{ option.text }}</option>
+            </select>
+            <small *ngIf="input.errorMessage" class="form-text text-danger">
+              {{ input.errorMessage }}
+            </small>
+            <small *ngIf="input.helpMessage && !input.errorMessage" class="form-text text-muted">
+              {{ input.helpMessage }}
+            </small>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer" id="{{ id }}-buttons-wrapper">
+        <ng-template *ngTemplateOutlet="alertFooter"></ng-template>
+        <div *ngIf="!options.buttons || ((options.buttons.length === 0 || options.buttons.length === 1) && !alertFooter)"></div>
+        <div (click)="close()" class="btn btn-light" *ngIf="!options.buttons || (options.buttons.length === 0 && !alertFooter)">
+         Закрыть
+        </div>
+        <button class="btn" [disabled]="button.disabled" [ngClass]="button.cssClass ? button.cssClass : 'btn-grey'" (click)="button.handler ? clickButton(button) : close()" *ngFor="let button of options.buttons">{{ button.text }}</button>
+      </div>
+    </div>
+  </div>
+</div>

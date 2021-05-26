@@ -28,6 +28,7 @@
     "apexcharts": "^3.26.2",
     "bootstrap": "^4.6.0",
     "marked": "^2.0.3",
+    "material-icons": "^0.6.4",
     "ng-pick-datetime": "^7.0.0",
     "ngx-mask": "^11.1.5",
     "ngx-owl-carousel-o": "^5.0.0",

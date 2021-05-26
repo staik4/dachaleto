@@ -2,9 +2,9 @@
   <div class="text-banner">
     <h1 class="title-text text-uppercase text-white">{{ banner ? banner.title_text : '' }}</h1>
     <h3 class="mt-4 text text-uppercase text-white">{{ banner ? banner.banner_text : '' }}</h3>
-    <div class="d-flex mt-5">
-      <button class="btn-normal btn-viola">Забронировать</button>
-      <button class="ml-2 btn-normal btn-white">Подробнее</button>
+    <div class="button-wrap d-flex flex-wrap mt-5">
+      <a (click)="scrollToBook($event)" href="#book" class="btn-normal btn-viola text-decoration-none">Забронировать</a>
+      <a (click)="scrollToBook($event)" href="#rent-cottages" class="ml-2 btn-normal btn-white">Подробнее</a>
     </div>
   </div>
 </div>

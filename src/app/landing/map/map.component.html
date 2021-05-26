@@ -3,7 +3,7 @@
   <div class="row mt-50px">
     <div class="col-xl-6" *ngFor="let map of maps">
       <div class="pic-map">
-        <img src="{{ backendUrl + map.picture.url }}" alt="">
+        <img class="w-100" src="{{ backendUrl + map.picture.url }}" alt="map {{ map.title }}" >
       </div>
       <div class="title-map mt-4">
         <h4>

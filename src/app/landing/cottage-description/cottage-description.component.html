@@ -1,7 +1,7 @@
 <div id="cottage-description" class="mt-100px">
-  <h4 class="text-uppercase">Коттедж "{{ cottage ? cottage.name : '' }}"</h4>
+  <h4 id="cottage{{cottage?.id}}" class="text-uppercase">Коттедж "{{ cottage ? cottage.name : '' }}"</h4>
   <div class="row mt-3">
-    <div class="main-pic {{ cottage?.plan ? 'col-xl-8' : 'col-4' }}">
+    <div class="main-pic {{ cottage?.plan ? 'col-xl-8  col-md-12' : 'col-xl-4  col-lg-6 col-md-12' }}">
       <img src="{{ backendUrl + cottage?.main_picture?.url }}" alt="Main cottage pic {{ cottage?.name }}">
     </div>
     <div *ngIf="cottage?.plan" class="col-xl-4 plan">
@@ -10,29 +10,41 @@
     <div *ngIf="cottage?.carousel_pictures?.length" class="cottage-carousel col-xl-12 mt-4">
       <owl-carousel-o [options]="customOptions" [className]="'row'">
         <ng-container *ngFor="let slide of cottage?.carousel_pictures; index as i">
-          <ng-template carouselSlide id="slide.id">
-            <div class="col-12">
+          <ng-template carouselSlide>
+            <div class="col-12" id="{{ slide.id }}">
               <img [src]="backendUrl + slide.url">
             </div>
           </ng-template>
         </ng-container>
       </owl-carousel-o>
     </div>
-    <div class="d-flex flex-column {{ cottage?.plan ? 'col-xl-12' : 'col-8 pl-5' }}">
+    <div class="d-flex flex-column {{ cottage?.plan ? 'col-xl-12 col-md-12' : 'col-xl-8 col-lg-6 col-md-12 pl-xl-5 pl-md-3 mt-xl-0 mt-lg-0 mt-5' }}">
       <div *ngIf="cottage?.addInfo?.bedroom != 0" class="mt-5 w-100">
         <div class="cottage-title">
           <div class="d-flex align-items-center">
-            Коттедж {{ cottage?.name }}
-            <img src="../../../assets/img/point.svg" alt="">
-            {{ cottage?.addInfo?.bedroom || '' }}
-            <img src="../../../assets/img/point.svg" alt="">
-            {{ cottage?.addInfo?.kitchen || '' }}
-            <img src="../../../assets/img/point.svg" alt="">
-            {{ cottage?.addInfo?.bathroom || '' }}
-            <img src="../../../assets/img/point.svg" alt="">
-            {{ cottage?.addInfo?.terrace || '' }}
-            <img src="../../../assets/img/point.svg" alt="">
-            {{ cottage?.addInfo?.area || '' }}
+            <span class="add-info-title-text">
+              Коттедж {{ cottage?.name }}
+            </span>
+            <span class="add-info-title-text">
+              <img src="../../../assets/img/point.svg" alt="">
+              {{ cottage?.addInfo?.bedroom || '' }}
+            </span>
+            <span class="add-info-title-text">
+              <img src="../../../assets/img/point.svg" alt="">
+              {{ cottage?.addInfo?.kitchen || '' }}
+            </span>
+            <span class="add-info-title-text">
+               <img src="../../../assets/img/point.svg" alt="">
+              {{ cottage?.addInfo?.bathroom || '' }}
+            </span>
+            <span class="add-info-title-text">
+              <img src="../../../assets/img/point.svg" alt="">
+              {{ cottage?.addInfo?.terrace || '' }}
+            </span>
+            <span class="add-info-title-text">
+              <img src="../../../assets/img/point.svg" alt="">
+              {{ cottage?.addInfo?.area || '' }}
+            </span>
           </div>
         </div>
       </div>
@@ -42,7 +54,7 @@
       </div>
       <div class="w-100 description mt-4">
         {{ cottage?.description }}
-        <a class="a-more cursor-pointer text-viola mt-5 d-flex align-items-center">Подробнее <img class="ml-2" src="../../../../assets/img/arr-left.svg" alt="arr left"></a>
+<!--        <a class="a-more cursor-pointer text-viola mt-5 d-flex align-items-center">Подробнее <img class="ml-2" src="../../../assets/img/arr-left.svg" alt="arr left"></a>-->
       </div>
       <div class="w-100 prices mt-5">
         <div class="price-title">
@@ -54,9 +66,8 @@
         <h3 class="price-per-month mt-3">
           {{ cottage?.price_per_month }} руб/месяц
         </h3>
-        <button class="btn-normal btn-viola mt-3">Забронировать</button>
+        <a (click)="scrollToBook($event)" href="#book" class="btn-normal btn-viola mt-3">Забронировать</a>
       </div>
     </div>
-
   </div>
 </div>

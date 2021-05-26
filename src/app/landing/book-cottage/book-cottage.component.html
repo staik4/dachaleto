@@ -2,8 +2,8 @@
   <h1>{{ title?.title }}</h1>
   <form class="col-12 mt-50px" action="" [formGroup]="form">
     <div class="row">
-      <div class="d-flex flex-column align-content-start form-group col-xl-3">
-        <label for="select-cottage">Аренда:</label>
+      <div class="d-flex flex-column align-content-start form-group col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <label for="select-cottage">Аренда*:</label>
         <div class="wrapper-select">
           <select name="" id="select-cottage" class="select-book" formControlName="cottage">
             <option [value]="0" disabled [selected]="true">Выберите коттедж</option>
@@ -11,40 +11,66 @@
           </select>
         </div>
       </div>
-      <div class="d-flex flex-column align-content-start form-group col-xl-3">
-        <label for="location">Выберите направление:</label>
+      <div class="d-flex flex-column align-content-start form-group col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <label for="location">Выберите направление*:</label>
         <div class="wrapper-select">
           <select name="" class="select-book" id="location" formControlName="location">
-            <option value="">Можайское насправление</option>
-            <option value="">Дмитровское направление</option>
+            <option value="1">Можайское насправление</option>
+            <option value="2">Дмитровское направление</option>
           </select>
         </div>
       </div>
-      <div class="d-flex flex-column align-content-start form-group col-xl-3">
-        <label for="arrival-date">Дата заезда</label>
-        <input placeholder="Выберите дату заезда" id="arrival-date" type="date" class="input-book" formControlName="arrivalDate">
+      <div class="d-flex flex-column align-content-start form-group col-xl-3 col-lg-4 col-md-6 col-sm-12 position-relative">
+        <label for="arrival-date">Дата заезда*</label>
+        <div class="position-relative inp">
+          <input placeholder="Выберите дату заезда" id="arrival-date" [owlDateTime]="dtArrival" [owlDateTimeTrigger]="dtArrival" class="input-book" formControlName="arrivalDate">
+          <owl-date-time class="position-relative" [translate]="true" [pickerType]="'calendar'" #dtArrival></owl-date-time>
+          <i class="material-icons cal-icon" [owlDateTimeTrigger]="dtArrival">calendar_today</i>
+        </div>
       </div>
-      <div class="d-flex flex-column align-content-start form-group col-xl-3">
-        <label for="departure-date">Дата выезда</label>
-        <input placeholder="Выберите дату выезда" id="departure-date" type="date" class="input-book" formControlName="departureDate">
+      <div class="d-flex flex-column align-content-start form-group col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <label for="departure-date">Дата выезда*</label>
+        <div class="position-relative inp">
+          <input placeholder="Выберите дату выезда" id="departure-date" [owlDateTime]="dtDeparture" [owlDateTimeTrigger]="dtDeparture" class="input-book" formControlName="departureDate">
+          <i class="material-icons cal-icon" [owlDateTimeTrigger]="dtDeparture">calendar_today</i>
+          <owl-date-time [pickerType]="'calendar'" #dtDeparture></owl-date-time>
+        </div>
       </div>
 
-      <div class="d-flex flex-column align-content-start form-group col-xl-3">
-        <label for="name">ФИО</label>
+      <div class="d-flex flex-column align-content-start form-group col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <label for="name">ФИО*</label>
         <input placeholder="Введите ФИО" id="name" type="text" class="input-book" formControlName="name">
+        <div class="form-control-feedback"
+             *ngIf="form.controls.name.errors && (form.controls.name.dirty || form.controls.name.touched)">
+          <p *ngIf="form.controls.name.invalid">Необходимо ввести корректный ФИО</p>
+        </div>
       </div>
-      <div class="d-flex flex-column align-content-start form-group col-xl-3">
-        <label for="phone-number">Телефонный номер</label>
-        <input [mask]="'+7 (000) 000-0000'"  placeholder="Введите телефонный номер" id="phone-number" type="text" class="input-book" formControlName="telNumber">
+      <div class="d-flex flex-column align-content-start form-group col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <label for="phone-number">Телефонный номер*</label>
+        <input [mask]="'(000)-000-0000'" [showMaskTyped]="true" placeHolderCharacter="*" prefix="+7" placeholder="Введите телефонный номер" id="phone-number" type="text" class="input-book" formControlName="number">
+        <div class="form-control-feedback"
+             *ngIf="form.controls.number.errors && (form.controls.number.dirty || form.controls.number.touched)">
+          <p *ngIf="form.controls.number.errors.required">Необходимо ввести корректный номер телефона</p>
+        </div>
       </div>
-      <div class="d-flex flex-column align-content-start form-group col-xl-3">
-        <label for="persons-number">Количество человек</label>
-        <input placeholder="Введите количество человек" id="persons-number" type="number" class="input-book" formControlName="personsNumber" [min]="0" [max]="6">
+      <div class="d-flex flex-column align-content-start form-group col-xl-3 col-lg-4 col-md-6 col-sm-12">
+        <label for="persons-number">Email*</label>
+        <input placeholder="Введите ваш email" id="persons-number" type="email" class="input-book" formControlName="email">
+        <div class="form-control-feedback"
+             *ngIf="form.controls.email.errors && (form.controls.email.dirty || form.controls.email.touched)">
+          <p *ngIf="form.controls.email.invalid">Необходимо ввести корректный email</p>
+        </div>
       </div>
-      <div class="d-flex flex-column align-content-start form-group col-xl-3">
+      <div class="d-flex flex-column align-content-start form-group col-xl-3 col-lg-4 col-md-6 col-sm-12">
         <label for="additional-services">Дополнительные услуги</label>
         <input placeholder="Дополнительные услуги" id="additional-services" type="text" class="input-book" formControlName="additionalServices">
       </div>
     </div>
+    <div class="btns-wrap d-flex flex-column mt-4">
+      <span><a (click)="resetForm()" class="link-reset mt-3">Сбросить все</a></span>
+      <button (click)="book()" class="btn-book btn-normal btn-viola mt-3" [ngClass]="{'btn-disabled': form.invalid}">Забронировать</button>
+    </div>
   </form>
 </div>
+
+<app-alert #alert></app-alert>

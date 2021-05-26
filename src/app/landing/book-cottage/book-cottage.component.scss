@@ -53,5 +53,38 @@
   }
 }
 
+.link-reset {
+  font-size: 14px;
+  line-height: 19px;
+  color: #3A2C51;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
+.btn-book {
+  font-size: 18px;
+}
+
+.form-control-feedback {
+  p {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #e71b00;
+    line-height: 1.2;
+  }
+}
+
+.inp {
+  input {
+    width: 100%;
+  }
+  .cal-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 20px;
+  }
+
+}
 

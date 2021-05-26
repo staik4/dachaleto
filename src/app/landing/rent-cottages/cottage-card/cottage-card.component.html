@@ -8,5 +8,5 @@
   <div class="description mt-2">
     {{ cottage?.description }}
   </div>
-  <a class="cursor-pointer text-viola mt-5 d-flex align-items-center">Подробнее <img class="ml-2" src="../../../../assets/img/arr-left.svg" alt="arr left"></a>
+  <a (click)="scrollToCottage($event)" href="#cottage{{cottage?.id}}" class="cursor-pointer text-viola mt-5 d-flex align-items-center">Подробнее <img class="ml-2" src="../../../../assets/img/arr-left.svg" alt="arr left"></a>
 </div>

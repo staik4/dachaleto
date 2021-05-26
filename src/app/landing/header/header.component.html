@@ -1,17 +1,33 @@
 <header class="py-2">
   <div class="container">
-    <nav class="d-flex align-items-center">
-      <div class="logo">
+    <nav class="p-0 navbar navbar-expand-lg d-flex">
+      <div class="logo d-xl-none d-lg-none d-md-flex d-flex">
         <img src="../../../assets/img/logo-header.svg" alt="Logo Header">
       </div>
-      <div class="nav-items d-flex">
-        <a href="">Коттеджи</a>
-        <a href="">Забронировать</a>
-        <a href="">Чем заняться</a>
-        <a href="">Местоположение</a>
+      <button (click)="toggleNavBar()" class="burger navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="/assets/img/list.svg" alt="burger">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="logo d-xl-flex d-lg-flex d-md-none d-none">
+            <img src="../../../assets/img/logo-header.svg" alt="Logo Header">
+          </div>
+          <div class="nav-items d-flex">
+            <a (click)="clickNavItem($event)" href="#rent-cottages">Коттеджи</a>
+            <a (click)="clickNavItem($event)" href="#book">Забронировать</a>
+            <a (click)="clickNavItem($event)" href="#leisure-container">Чем заняться</a>
+            <a (click)="clickNavItem($event)" href="#map">Местоположение</a>
+          </div>
+          <div id="add-info">
+            <a id="number-header" href="tel:74951182822">+7 (495) 118-2822</a>
+          </div>
       </div>
-      <div id="add-info">
-        <a id="number-header" href="tel:74951182822">+7 (495) 118-2822</a>
+      <div *ngIf="openedNavbar" class="mobile-navbar" @toggleHeight style="width: 100%">
+        <div class="nav-items d-flex" style="margin-left: 0">
+          <a (click)="clickNavItem($event)" href="#rent-cottages">Коттеджи</a>
+          <a (click)="clickNavItem($event)" href="#book">Забронировать</a>
+          <a (click)="clickNavItem($event)" href="#leisure-container">Чем заняться</a>
+          <a (click)="clickNavItem($event)" href="#map">Местоположение</a>
+        </div>
       </div>
     </nav>
   </div>
